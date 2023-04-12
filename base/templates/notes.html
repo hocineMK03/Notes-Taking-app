@@ -1,0 +1,50 @@
+{%extends 'main.html'%}
+{%block content%}
+
+<style>
+    .half{
+        display: grid;
+        grid-template-columns: 2fr  1fr 4fr;
+        
+    }
+</style>
+
+<div class="half">
+    
+    <div>
+        <h2>add note</h2>
+        <a href="{% url 'list_create' %}"><button>here</button></a>
+        <h2>Recent notes</h2>
+        {%for m in latest5%}
+        <div>
+            <a href="">
+            <h3>{{m.list_name}}</h3>
+            <h5>   {{m.list_desc}}</h5>
+            <small>{{m.date_created}}</small>
+            
+            </a>
+        </div>
+        <hr>
+        {%endfor%}
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        <h2>Notes :</h2>
+        {% for l in listoftodo%}
+        
+        <div>
+            <a href="">
+            <h3>{{l.id}}</h3>    
+            <h5>    {{l.list_desc}}</h5>
+            <small>{{l.date_created}}</small>
+            </a>
+            <a href="{% url 'delete' l.id%}">delete</a>
+        </div>
+        <hr>
+        {%endfor%}
+    </div>
+
+</div>
+{%endblock content %}

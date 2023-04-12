@@ -1,0 +1,26 @@
+{% extends 'main.html'%}
+{%block content%}
+{{user1}}
+
+
+{%if isauthenticated%}
+
+<a href="{%url 'logout1'%}"><h3>logout</h3></a>
+{%else%}
+<a href="{%url 'register_page'%}"><h3>register</h3></a>
+    <a href="{%url 'login_page'%}">login</a>
+{% endif%}
+
+{%if isauthenticated%}
+<a href="{% url 'notes'%}"><button>View List</button></a>
+<div>
+    <h4>platform to remember tasks</h4>
+</div>
+
+{% endif%}
+
+
+
+
+
+{%endblock content%}
